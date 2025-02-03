@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复盘文档</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    
+    
+}
+    body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+    }
+    /* 导航栏*/
+    .logo {
+        color: white;
+        font-size: 18px;
+    }
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(rgba(17, 96, 133, 0.5), rgba(15, 55, 163, 0.5));
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+    .nav-list {
+        display: flex;
+        list-style: none;
+        
+    }
+    .nav-list li {
+        margin: 0 1rem;
+    }
+    .nav-list a {
+        color :aliceblue;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .nav-list a:hover {
+        color: #00ff9d;
+    }
+    /*汉堡菜单*/
+    .burger {
+        display: none;
+        cursor: pointer;
+    }
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+    /* 首页部分*/
+    #home {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align:center;
+        background: linear-gradient(rgba(17, 96, 133, 0.5), rgba(15, 55, 163, 0.5));
+        background-size: auto;
+        background-position: center;
+        background-repeat:no-repeat;
+        color: white
+    }
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .cta-button {
+        margin: 1rem;
+        padding:  1rem 2rem;
+        font-size: 1.4rem;
+        background: #8ac5e7;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .cta-button:hover {
+
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transform: scale(1.05);
+    }
+    #about {
+ 
+        padding :5rem 2rem;
+        background: #f4f4f4;
+    }
+    .skills-bars {
+        max-width: 600px;
+        margin: 2rem auto;
+    }
+    .skill {
+        margin: 1rem 0;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #bdaaaa;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 100%;
+        background: #00ff9d;
+        transition: width 1s ease-in-out;
+    }
+    /* 222*/
+    #projects {
+        padding: 2rem;
+        background: rgb(171, 222, 241);
+        height: 700px;
+    }
+    #projects h2 {
+        padding-top: 1rem;
+        margin: 2rem;
+    }
+    .project-grid {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .project {
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+        padding: 1.5rem;
+        margin: 0;
+        width: auto;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .project:hover {
+        transform: translateY(-5px);
+    }
+    
+    .project p {
+        padding: 0 1rem 1rem        
+    }
+    .project-links {
+        padding :0.5rem;
+        display: flex;
+        justify-content: space-around;
+        text-decoration: none;
+    }
+    .btn {
+        padding :0.5rem 1rem;
+        background :#333;
+        color : white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+    background: #555;
+    }
+    /*    */
+    #contact {
+        padding :5rem 2rem;
+    }
+    .contact-form {
+        max-width: 600px;
+        margin :0 auto;
+    }
+    form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    input, textarea {
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    textarea {
+        height: 150px;
+        resize: vertical;
+    }
+    footer {
+        background: #465253;
+    }
+    .footer-section {
+        display: flex;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-section p{
+        color: white;
+    }
+    .social-links {
+    margin-bottom: 1rem;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+        transition: color 0.3s;
+    }
+
+.social-links a:hover {
+    color: #00ff9d;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .burger {
+        display: block;
+    }
+    
+    .nav-active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background: #333;
+        width: 100%;
+        align-items: center;
+        padding: 1rem;
+    }
+    .project-grid {
+        grid-template-columns: repeat(1, 1fr); /* 单列布局 */
+    }
+    #projects {
+        height: 1200px;
+    }
+} 
+
+</style>
+<body>
+    <!-- 导航栏-->
+    <nav class = "nav">
+        <div class = "nav-logo">
+            <h1 class="logo"> 复盘文档</h1>
+        </div>
+        <ul class = "nav-list">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+        <div class = "burger">
+            <div class = "line1"></div>
+            <div class = "line2"></div>
+            <div class = "line3"></div>
+        </div>
+    </nav>
+    <!-- 主体内容-->
+     <section id = "home">
+        <div class = "hero">
+            <h1>欢迎来到复盘文档</h1>
+            <p>这是一个用于记录和分享复盘文档的网站</p>
+            <button class = "cta-button">开始复盘</button>
+
+        </div>
+     </section>
+     <!-- 关于部分-->
+     <section id="about">
+        <h2>关于我</h2>
+        <div class="about-content">
+            <div class="skills">
+                <h3>技能</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <span>HTML</span>
+                        <div class="progress-bar" >
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>CSS</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>JavaScript</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>项目</h2>
+        <div class="project-grid">
+            <div class="project">
+                <h3>项目1</h3>
+                <p>这是一个用于记录和分享复盘文档的网站</p>
+                <div class="project-links">
+                    <a href="#" class ="btn">查看详情</a>
+                    <a href="#" class ="btn">访问项目</a>
+                </div>
+            </div>
+            <div class="project">
+                <h3>项目2</h3>
+                <p>这是一个用于记录和分享复盘文档的网站</p>
+                <div class="project-links">
+                    <a href="#" class ="btn">查看详情</a>
+                    <a href="#" class ="btn">访问项目</a>
+                </div>
+            </div>
+            <div class="project">
+                <h3>项目3</h3>
+                <p>这是一个用于记录和分享复盘文档的网站</p>
+                <div class="project-links">
+                    <a href="#" class ="btn">查看详情</a>
+                    <a href="#" class ="btn">访问项目</a>
+                </div>
+            </div>
+            <div class="project">
+                <h3>项目4</h3>
+                <p>这是一个用于记录和分享复盘文档的网站</p>
+                <div class="project-links">
+                    <a href="#" class ="btn">查看详情</a>
+                    <a href="#" class ="btn">访问项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 联系部分-->
+    <section id="contact">
+        <h2>联系我们</h2>
+        <div class="contact-form">
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="姓名">
+                <input type="email" name="email" placeholder="邮箱">
+                <textarea name="message" placeholder="消息"></textarea>
+                <button type="submit">发送</button>
+            </form>
+        </div>
+    </section>
+    <!-- 底部-->
+    <footer>
+       <div class="footer-content">
+        <div class="footer-section">
+            <p>© 2024 我的作品集. All rights reserved.</p>
+        </div>
+        
+       </div>
+    </footer>
+</body>
+</html>
+
