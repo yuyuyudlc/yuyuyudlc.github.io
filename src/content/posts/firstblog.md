@@ -1,10 +1,10 @@
 ---
 title: 通过css实现不同主题色切换
 published: 2025-09-07
-description: 'Read more about Markdown features in Fuwari'
+description: '一种css实现不同主题方法的介绍'
 image: ''
-tags: [Demo, Example, Markdown, Fuwari]
-category: 'Examples'
+tags: [Css]
+category: '通用'
 draft: false 
 ---
 
