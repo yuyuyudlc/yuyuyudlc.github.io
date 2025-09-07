@@ -1,9 +1,9 @@
 name: Deploy Astro site to GitHub Pages
 
 on:
-  # 每次推送到 `main` 分支时触发这个"工作流程"
+  # 每次推送到 `master` 分支时触发这个"工作流程"
   push:
-    branches: [ main ]
+    branches: [ master ]
   # 允许你在 GitHub 上的 Actions 标签中手动触发此"工作流程"
   workflow_dispatch:
 
