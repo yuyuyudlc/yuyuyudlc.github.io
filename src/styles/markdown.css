@@ -119,15 +119,3 @@
     }
     
 }
-
-/* 将自定义类声明到 components layer，避免 postcss 报错 */
-@layer components {
-  .link {
-    @apply text-blue-600 hover:underline dark:text-blue-400;
-  }
-
-  /* 如果还有其他自定义类也放在这里 */
-  .markdown-code {
-    @apply bg-gray-100 p-2 rounded text-sm dark:bg-gray-800;
-  }
-}
